@@ -50,5 +50,21 @@ def h1(s):
 
 def h3(s):
     # implement this function
+    goal = (1, 2, 3, 4, 5, 6, 7, 8, 0)
+    pos = {1:[0,0], 2:[1,0], 3:[2,0], 4:[0,1], 5:[1,1], 6:[2,1], 7:[0,2], 8:[1,2], 0:[2,2]}
+    distance = []
+
     board, _, _ = s
-    return 0
+
+    for i in range(9):
+        if goal[i] != board[i]:
+
+
+           distance.append(abs(( pos[board[i]][0] - pos[goal[i]][0] )) + abs(( pos[board[i]][1] - pos[goal[i]][1] )))
+        
+
+
+
+    summed = sum(distance)
+    return summed
+
