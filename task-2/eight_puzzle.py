@@ -49,22 +49,43 @@ def h1(s):
     return res
 
 def h3(s):
-    # implement this function
     goal = (1, 2, 3, 4, 5, 6, 7, 8, 0)
     pos = {1:[0,0], 2:[1,0], 3:[2,0], 4:[0,1], 5:[1,1], 6:[2,1], 7:[0,2], 8:[1,2], 0:[2,2]}
-    distance = []
 
     board, _, _ = s
+    col_dis = 0
+    row_dis = 0
 
     for i in range(9):
-        if goal[i] != board[i]:
+         
+         #check row disalignment
+         if goal[i] != board[i]:
+             if pos[goal[i]][0] != pos[board[i]][0]:
+                 row_dis += 1
+
+         #check column disalignment
+         if goal[i] != board[i]:
+             if pos[goal[i]][1] != pos[board[i]][1]:
+                 col_dis += 1
+    
+    total = row_dis + col_dis
+    return total
+
+    # Sum of column and row distance from goal
+    # goal = (1, 2, 3, 4, 5, 6, 7, 8, 0)
+    # pos = {1:[0,0], 2:[1,0], 3:[2,0], 4:[0,1], 5:[1,1], 6:[2,1], 7:[0,2], 8:[1,2], 0:[2,2]}
+    # distance = []
+
+    # board, _, _ = s
+
+    # for i in range(9):
+    #     if goal[i] != board[i]:
 
 
-           distance.append(abs(( pos[board[i]][0] - pos[goal[i]][0] )) + abs(( pos[board[i]][1] - pos[goal[i]][1] )))
+    #        distance.append(abs(( pos[board[i]][0] - pos[goal[i]][0] )) + abs(( pos[board[i]][1] - pos[goal[i]][1] )))
         
 
 
 
-    summed = sum(distance)
-    return summed
-
+    # summed = sum(distance)
+    #return summed
